@@ -5,9 +5,10 @@ package main
 import (
 	"fmt"
 	"log"
-	"net/http"
+	"github.com/namsral/flag"
 	"github.com/stianeikeland/go-rpio"
-  "os"
+	"net/http"
+  // "os"
   "time"
 )
 
@@ -29,6 +30,7 @@ func toggleHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 var pinMap map[string]rpio.Pin
+var port uint
 
 func initPins() {
   if err := rpio.Open(); err != nil {
@@ -42,15 +44,22 @@ func initPins() {
 	pinMap["19"] = rpio.Pin(19)
 }
 
+func readAndValidateConfig() {
+	flag.UintVar(&port, "port", 8080, "Port to serve api on")
+	flag.Parse()
+}
+
 func main() {
 	initPins()
+	readAndValidateConfig()
 
 	fileServer := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fileServer)
 	http.HandleFunc("/toggle", toggleHandler)
 
-	fmt.Printf("Starting server at port 8080\n")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	portNumber := fmt.Sprintf(":%d", port)
+	fmt.Printf("Starting server at port %s\n", portNumber)
+	if err := http.ListenAndServe(portNumber, nil); err != nil {
 		log.Fatal(err)
 	}
 }
