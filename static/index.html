@@ -1,0 +1,51 @@
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+  <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css' />
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js'></script>
+  <script type='text/javascript'>
+    $(document).ready(function() {
+      $('.switch').click(function(event) {
+        $.get($(this).attr('href'));
+        event.preventDefault();
+      });
+    });
+  </script>
+  <style>
+    .switch-group {
+      margin-bottom: 30px;
+    }
+  </style>
+  </head>
+  <body>
+    <div class='container'>
+
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class='container switch-group'>
+            <a href='/toggle?pin=26' class='switch on btn btn-success btn-lg btn-block'>On</a>
+            <a href='/toggle?pin=19' class='switch off btn btn-danger btn-lg btn-block'>Off</a>
+          </div>
+        </div>
+
+        <!--
+          <div class='col-md-4'>
+          <div class='container switch-group'>
+            <a href='/toggle?pin=13' class='switch on btn btn-success btn-lg btn-block'>On</a>
+            <a href='/toggle?pin=6' class='switch off btn btn-danger btn-lg btn-block'>Off</a>
+          </div>
+        </div>
+
+        <div class='col-md-4'>
+          <div class='container switch-group'>
+            <a href='/toggle?pin=21' class='switch on btn btn-success btn-lg btn-block'>On</a>
+            <a href='/toggle?pin=20' class='switch off btn btn-danger btn-lg btn-block'>Off</a>
+          </div>
+        </div>
+        -->
+      </div>
+
+    </div>
+  </body>
+</html>
