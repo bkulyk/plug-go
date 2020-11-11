@@ -1,7 +1,5 @@
 package main
 
-// https://github.com/BPI-SINOVOIP/RPi.GPIO/blob/master/create_gpio_user_permissions.py
-
 import (
 	"fmt"
 	"log"
