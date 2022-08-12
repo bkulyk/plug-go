@@ -1,0 +1,48 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Simple API to turn lights on and off using raspberry pi pins.",
+        "title": "Plug-Go",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Brian Kulyk",
+            "url": "https://github.com/bkulyk/plug-go",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/toggle": {
+            "get": {
+                "description": "toggle a pin to high for a second to turn on/off a light",
+                "consumes": [
+                    "application/plaintext"
+                ],
+                "produces": [
+                    "text/html"
+                ],
+                "summary": "toggle a pin to high for a second to turn on/off a light",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "friendly name of the light to toggle",
+                        "name": "toggle",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Found"
+                    }
+                }
+            }
+        }
+    }
+}

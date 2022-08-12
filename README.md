@@ -22,8 +22,8 @@ env GOOS=linux GOARCH=arm GOARM=5 go build server.go
 To schedule the lights I just used crontab to call the server, to toggle specific pins.
 
 ```cron
-30 16 * * * /usr/bin/curl http://localhost:8080/toggle?pin=26
-30 21 * * * /usr/bin/curl http://localhost:8080/toggle?pin=19
+30 16 * * * /usr/bin/curl http://localhost:8080/toggle?pin=light1on
+30 21 * * * /usr/bin/curl http://localhost:8080/toggle?pin=light1off
 ```
 
 [Plug]: https://github.com/bkulyk/plug

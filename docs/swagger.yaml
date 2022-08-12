@@ -1,0 +1,33 @@
+basePath: /
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: Brian Kulyk
+    url: https://github.com/bkulyk/plug-go
+  description: Simple API to turn lights on and off using raspberry pi pins.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Plug-Go
+  version: "1.0"
+paths:
+  /toggle:
+    get:
+      consumes:
+      - application/plaintext
+      description: toggle a pin to high for a second to turn on/off a light
+      parameters:
+      - description: friendly name of the light to toggle
+        in: query
+        name: toggle
+        required: true
+        type: string
+      produces:
+      - text/html
+      responses:
+        "302":
+          description: Found
+      summary: toggle a pin to high for a second to turn on/off a light
+swagger: "2.0"
